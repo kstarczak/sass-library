@@ -1,0 +1,30 @@
+@use '../variables/' as *;
+
+@mixin base-button($color: black, $bg-color: #d6d6d6) {
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: $base-padding $base-padding * 2;
+    border: 0;
+    border-radius: $base-border-radius;
+    color: $color;
+    background-color: $bg-color;
+    &:hover {
+        background-color: lighten($bg-color, 5);
+    }
+}
+
+@mixin button-outline($color: black) {
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: $base-padding $base-padding * 2;
+    border: $base-border-thickness solid $color;
+    border-radius: $base-border-radius;
+    color: $color;
+    background-color: transparent;
+    &:hover {
+        background-color: $color;
+        color: white;
+    }
+}

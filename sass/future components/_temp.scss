@@ -1,0 +1,46 @@
+// code below was copied from outside site... 
+// it is called when the user enters valid input and the label text floats up to the corner
+//.form__input--floating>input:valid+label
+
+// to use math function add the code below to the top of your stylesheet
+// @use 'sass:math';
+
+// debug allows you to print expressions to the console
+// the code below will print '5'
+// @debug math.div(10, 2);
+
+
+// loop to generate classes from $colors map, uncomment below
+// add the following to the top:
+// @use 'sass:color';
+/*
+@each $key, $val in $colors {
+    .text-#{$key} {
+        color: $val;
+    }
+    .bg-#{$key} {
+        background-color: $val;
+
+    @if ($val != white and $val != black) {  
+        // light variation
+        @for $i from 1 through 9 {
+            .text-#{$key}-light-#{$i} {
+                color: mix(white, $val, $i * 10);
+            }
+            .bg-#{$key}-light-${%i} {
+                background-color: mix(white, $val, $i * 10);
+            }
+        }
+
+        // dark variation
+        @for $i from 1 through 9 {
+            .text-#{$key}-dark-#{$i} {
+                color: mix(black, $val, $i * 10);
+            }
+            .bg-#{$key}-dark-${%i} {
+                background-color: mix(black, $val, $i * 10);
+            }
+        }
+    }
+}
+*/

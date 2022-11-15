@@ -1,0 +1,91 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../layouts/breakpoints' as *;
+
+
+// variable for max number of colums for the grid
+$grid-columns :12;
+
+// base layout classes
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+// mixin to loop though breakpoint map
+// ...and create 12 column classes for each query with variable widths
+@mixin column-class-creator($breakpoint-size, $max-columns) {
+    @for $i from 1 through $max-columns {
+        .col-#{$i}-#{$breakpoint-size} {
+            box-sizing: border-box;
+            flex-grow: 0;
+            width: math.div($i * 100%, $max-columns);
+        }
+    }
+}
+
+// col-classes
+@mixin col-classes {
+    @include xs {
+        @include column-class-creator(xs, $grid-columns);
+    }
+
+    @include sm {
+        @include column-class-creator(sm, $grid-columns);
+    }
+
+    @include md {
+        @include column-class-creator(md, $grid-columns);
+    }
+
+    @include lg {
+        @include column-class-creator(lg, $grid-columns);
+    }
+
+    @include xl {
+        @include column-class-creator(xl, $grid-columns);
+    }
+}
+
+// grid gap map
+$grid-gaps: (
+    "0": 0,
+    "1": 10px,
+    "2": 20px,
+    "3": 30px,
+    "4": 40px
+);
+
+// grid gap classes
+@mixin gap-classes {
+
+    @each $key, $val in $grid-gaps {
+        .gap-#{$key}>* {
+            padding: $val;
+        }
+
+        .gap-#{$key} {
+            margin-left: -$val;
+            margin-right: -$val;
+        }
+    }
+}
+
+// flex layout list
+$layout-values: flex-start, flex-end, center, space-between, space-around;
+
+// justify content classes
+@mixin justify-classes {
+    @each $val in $layout-values {
+            .justify-#{$val} {
+                justify-content: $val;
+            }
+        }
+}

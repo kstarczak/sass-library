@@ -1,0 +1,27 @@
+@use 'sass:math';
+@use 'base/net_ninja_reset' as *;
+@use 'variables/colors' as *;
+@use 'components/card' as *;
+@use 'components/button' as *;
+@use 'variables/utilities' as *;
+@use 'layouts/grid' as *;
+@use 'components/navbar';
+// to import all the scss files in the variables folder uncomment the code below:
+// @use 'variables' as *;
+
+// import google font
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@include net-ninja-reset;
+@include utility-classes;
+
+.card {
+    @include base-card;
+}
+.btn {
+    @include base-button;
+}
+
+@include col-classes;
+@include gap-classes;
+@include justify-classes;
